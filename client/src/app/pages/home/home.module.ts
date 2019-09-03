@@ -12,9 +12,9 @@ import { ItemsViewComponent } from './items-view/items-view.component';
 import { RedeemedItemsIndexComponent } from './redeemed-items-index/redeemed-items-index.component';
 import { RedeemedItemsViewComponent } from './redeemed-items-view/redeemed-items-view.component';
 import { ItemService } from 'src/app/services/item.service';
-import { TableComponent } from 'src/app/shared/table/table.component';
 import { SharedComponentsModule } from 'src/app/shared/shared-components.module';
 import { ItemsRedeemComponent } from './items-redeem/items-redeem.component';
+import { ChartsModule } from 'ng2-charts';
 
 const routes: Routes = [
   {
@@ -71,6 +71,7 @@ const routes: Routes = [
     MatSidenavModule,
     MatToolbarModule,
     SharedComponentsModule,
+    ChartsModule,
     ...shared_modules
   ],
   providers: [

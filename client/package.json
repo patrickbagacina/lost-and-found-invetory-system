@@ -26,9 +26,11 @@
     "apollo-cache-inmemory": "^1.6.3",
     "apollo-client": "^2.6.4",
     "apollo-link": "^1.2.12",
+    "chart.js": "^2.8.0",
     "core-js": "^2.5.4",
     "graphql": "^14.5.4",
     "graphql-tag": "^2.10.1",
+    "ng2-charts": "^2.3.0",
     "rxjs": "~6.5.2",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"

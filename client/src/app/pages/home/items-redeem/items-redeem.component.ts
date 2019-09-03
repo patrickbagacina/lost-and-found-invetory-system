@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { emailRegex } from 'src/app/models/user';
 
 @Component({
   selector: 'app-items-redeem',
@@ -28,7 +29,8 @@ export class ItemsRedeemComponent implements OnInit {
         Validators.required
       ]],
       email: ['', [
-        Validators.required
+        Validators.required,
+        Validators.pattern(emailRegex)
       ]],
       mobileNumber: ['', [
         Validators.required

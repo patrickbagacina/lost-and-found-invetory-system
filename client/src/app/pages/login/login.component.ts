@@ -49,6 +49,8 @@ export class LoginComponent implements OnInit {
           this.router.navigateByUrl('');
         })
         .catch((error: any) => {
+          this.username.setValue(null);
+          this.password.setValue(null);
           this.invalidCredentials = true;
         });
     }

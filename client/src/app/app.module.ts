@@ -46,7 +46,17 @@ import { TableComponent } from './shared/table/table.component';
           cache: new InMemoryCache(),
           link: httpLink.create({
             uri: environment.serverUrl
-          })
+          }),
+          defaultOptions: {
+            watchQuery: {
+              fetchPolicy: 'no-cache',
+              errorPolicy: 'ignore',
+            },
+            query: {
+              fetchPolicy: 'no-cache',
+              errorPolicy: 'all',
+            },
+          }
         };
       },
       deps: [HttpLink]

@@ -1,4 +1,4 @@
-<div class="wrapper" *ngIf="allItems">
+<div class="wrapper" *ngIf="allItems" style="margin-bottom: 15px;">
   <div class="box">
     <h6>Total Items</h6>
     <h1>{{ allItems.length }}</h1>
@@ -12,3 +12,14 @@
     <h1>{{ redeemedItems.length }}</h1>
   </div>
 </div>
+<mat-card *ngIf="allItems">
+  <div style="display: block">
+    <canvas baseChart
+      [datasets]="barChartData"
+      [labels]="barChartLabels"
+      [options]="barChartOptions"
+      [legend]="barChartLegend"
+      [chartType]="barChartType">
+    </canvas>
+  </div>
+</mat-card>
