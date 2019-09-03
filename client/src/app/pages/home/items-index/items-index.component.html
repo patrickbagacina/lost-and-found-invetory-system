@@ -1,0 +1,5 @@
+<div style="text-align: right;">
+  <h3 style="float: left; margin-top: 0px; margin-bottom: 0px;">Items in storage</h3>
+  <button mat-raised-button color="primary" (click)="addItem()">Add Item</button>
+</div>
+<app-table [dataSource]="items" (viewItem)="viewItem($event)"></app-table>

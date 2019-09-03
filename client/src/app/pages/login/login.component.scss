@@ -1,0 +1,22 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #fafafa;
+}
+
+.login-card {
+  width: 35vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  text-align: center;
+}

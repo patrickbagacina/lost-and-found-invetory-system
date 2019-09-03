@@ -1,0 +1,31 @@
+<div class="form-container" [formGroup]="userForm">
+  <h3>Please enter the owner's details</h3>
+  <mat-form-field>
+    <mat-label>First Name</mat-label>
+    <input matInput placeholder="First Name" name="firstName" formControlName="firstName">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Last Name</mat-label>
+    <input matInput placeholder="Last Name" name="lastName" formControlName="lastName">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email" name="email" formControlName="email">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Mobile Number</mat-label>
+    <input matInput placeholder="Mobile Number" name="mobileNumber" formControlName="mobileNumber">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Type Of ID Presented</mat-label>
+    <input matInput placeholder="Type Of ID" name="typeOfId" formControlName="typeOfId">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Id Number</mat-label>
+    <input matInput placeholder="Id Number" name="idNumber" formControlName="idNumber">
+  </mat-form-field>
+</div>
+<div class="button-group">
+  <button mat-button style="margin-right: 10px;" (click)="dismiss()">Cancel</button>
+  <button mat-raised-button mat-button color="primary" [disabled]="!userForm.valid" (click)="save()">Save</button>
+</div>

@@ -1,0 +1,39 @@
+<button mat-raised-button mat-button (click)="goTo('redeemed')" style="margin-bottom: 15px;">Back</button>
+<mat-card class="card" *ngIf="item">
+  <div class="container" style="border-bottom: 1px solid gray;">
+    <h3 style="margin-top: 10px;">Item Details</h3>
+    <p>
+      <b class="title">Category:</b> {{item.category}}
+    </p>
+    <p>
+      <b class="title">Type:</b> {{item.type}}
+    </p>
+    <p>
+      <b class="title">Brand:</b> {{item.brand}}
+    </p>
+    <p>
+      <b class="title">Description:</b> {{item.description}}
+    </p>
+    <p>
+      <b class="title">Date Added:</b> {{item.created}}
+    </p>
+  </div>
+  <div class="container">
+    <h3 style="margin-top: 10px;">Owner's Details</h3>
+    <p>
+      <b class="title">Name:</b> {{item.owner.firstName}} {{ item.owner.lstName }}
+    </p>
+    <p>
+      <b class="title">Email:</b> {{item.owner.email}}
+    </p>
+    <p>
+      <b class="title">Mobile Number:</b> {{item.owner.mobileNumber}}
+    </p>
+    <p>
+      <b class="title">Type of ID presented:</b> {{item.owner.typeOfId}}
+    </p>
+    <p>
+      <b class="title">ID Number:</b> {{item.owner.idNumber}}
+    </p>
+  </div>
+</mat-card>

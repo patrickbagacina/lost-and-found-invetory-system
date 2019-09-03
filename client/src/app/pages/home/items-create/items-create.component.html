@@ -1,0 +1,29 @@
+<mat-card class="card">
+  <div class="form-container" [formGroup]="itemForm">
+    <h3>Add New Item</h3>
+    <mat-form-field>
+      <mat-label>Item Category</mat-label>
+      <mat-select name="category" formControlName="category">
+        <mat-option *ngFor="let c of CATEGORY_KEYS" [value]="CATEGORY[c]">
+          {{ CATEGORY[c] }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Item Type</mat-label>
+      <input matInput placeholder="Item Type" name="type" formControlName="type">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Item Brand</mat-label>
+      <input matInput placeholder="Item Brand" name="brand" formControlName="brand">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input matInput placeholder="Description" name="description" formControlName="description">
+      </mat-form-field>
+  </div>
+  <div class="button-group">
+    <button mat-button style="margin-right: 10px;" (click)="goTo('/items')">Cancel</button>
+    <button mat-raised-button mat-button color="primary" [disabled]="!itemForm.valid" (click)="addItem()">Save</button>
+  </div>
+</mat-card>

@@ -1,0 +1,30 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+button {
+  font-size: 15px;
+}
+
+.sidenav-container {
+  background: #fafafa;
+  height: 100%;
+}
+
+.sidenav-menu {
+  width: 20%;
+}
+
+.main-content {
+  margin: 25px;
+}
+
+.menu-button {
+  width: 100%;
+  text-align: left;
+  height: 100%;
+}
+
+mat-list {
+  padding-top: 0px;
+}
