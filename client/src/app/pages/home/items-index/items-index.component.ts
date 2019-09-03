@@ -16,7 +16,6 @@ export class ItemsIndexComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('>>>>>>>>>>INIT');
     this.listItems();
   }
 

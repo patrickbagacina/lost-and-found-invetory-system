@@ -73,7 +73,6 @@ export class ItemsViewComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
       if (result) {
         this.itemService.redeem({
           itemId: this.item.id,
