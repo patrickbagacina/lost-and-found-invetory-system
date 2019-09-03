@@ -1,0 +1,70 @@
+type Mutation {
+    login(input: LoginRequest): User
+    addItem(input: CreateItemRequest): Item
+    updateItem(input: UpdateItemRequest): Item
+}
+
+type Query {
+    item(id: ID!): Item
+    items(opts: ListOpts, isRedeemed: Boolean): PagedList
+}
+
+# Input Models
+
+input CreateItemRequest {
+    category: String
+    type: String
+    brand: String
+    description: String
+}
+
+input ListOpts {
+    max: Int
+    offset: Int
+    sort: String
+}
+
+input LoginRequest {
+    username: String!
+    password: String!
+}
+
+input UpdateItemRequest {
+    id: ID
+    category: String
+    type: String
+    brand: String
+    description: String
+}
+
+# Type Models
+
+union Model = Item | User
+
+type PagedList {
+    total: Int!
+    data: [Model]
+}
+
+type Item {
+    id: ID!
+    created: Int!
+    updated: Int!
+    category: String
+    type: String
+    brand: String
+    description: String
+    owner: User
+    isRedeemed: Boolean
+}
+
+type User {
+    id: ID
+    username: String
+    firstName: String
+    lastName: String
+    email: String
+    mobileNumber: String
+    typeOfId: String
+    idNumber: String
+}
