@@ -10,6 +10,7 @@ import java.util.Map;
 
 public class ItemNotFoundException extends RuntimeException implements GraphQLError {
   private final String errorMessage = "Item not found!";
+  public static final int STATUS = 400;
 
   @Override
   public List<SourceLocation> getLocations() {
@@ -36,6 +37,7 @@ public class ItemNotFoundException extends RuntimeException implements GraphQLEr
     Map<String, Object> customAttributes = new LinkedHashMap<>();
 
     customAttributes.put("errorMessage", this.errorMessage);
+    customAttributes.put("status", STATUS);
 
     return customAttributes;
   }

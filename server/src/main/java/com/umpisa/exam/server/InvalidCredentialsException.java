@@ -10,6 +10,7 @@ import java.util.Map;
 
 public class InvalidCredentialsException extends RuntimeException implements GraphQLError {
   private final String errorMessage = "Invalid credentials!";
+  public static final int STATUS = 400;
 
   @Override
   public List<SourceLocation> getLocations() {
@@ -36,6 +37,7 @@ public class InvalidCredentialsException extends RuntimeException implements Gra
     Map<String, Object> customAttributes = new LinkedHashMap<>();
 
     customAttributes.put("errorMessage", this.errorMessage);
+    customAttributes.put("status", STATUS);
 
     return customAttributes;
   }

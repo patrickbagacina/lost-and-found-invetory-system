@@ -10,6 +10,7 @@ import java.util.Map;
 
 public class CategoryNotFoundException extends RuntimeException implements GraphQLError {
   private final String errorMessage = "Invalid category!";
+  public static final int STATUS = 400;
 
   @Override
   public List<SourceLocation> getLocations() {
@@ -36,6 +37,7 @@ public class CategoryNotFoundException extends RuntimeException implements Graph
     Map<String, Object> customAttributes = new LinkedHashMap<>();
 
     customAttributes.put("errorMessage", this.errorMessage);
+    customAttributes.put("status", STATUS);
 
     return customAttributes;
   }

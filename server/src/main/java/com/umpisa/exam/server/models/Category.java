@@ -3,7 +3,13 @@ package com.umpisa.exam.server.models;
 import com.umpisa.exam.server.CategoryNotFoundException;
 
 public enum Category {
-  ELECTRONICS("Electronics");
+  ELECTRONICS("Electronics"),
+  OFFICE_EQUIPMENTS("Office Equipments"),
+  SCHOOL_SUPPLIES("School Supplies"),
+  GADGETS("Gadgets"),
+  HOME_EQUIPMENTS("Home Equipments"),
+  TOOLS("Tools"),
+  OTHERS("Others");
 
   private final String value;
   Category(String value) { this.value = value; }

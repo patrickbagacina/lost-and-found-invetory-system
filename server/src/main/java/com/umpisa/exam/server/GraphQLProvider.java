@@ -72,11 +72,13 @@ public class GraphQLProvider {
           // Methods for items
           .dataFetcher("addItem", itemDataFetcher.addItem())
           .dataFetcher("updateItem", itemDataFetcher.updateItem())
+          .dataFetcher("redeemItem", itemDataFetcher.redeemItem())
       )
       .type(
         newTypeWiring("Query")
           .dataFetcher("item", itemDataFetcher.getItem())
           .dataFetcher("items", itemDataFetcher.listItems())
+          .dataFetcher("allItems", itemDataFetcher.listAllItems())
       )
       .type("Model", typeWriting -> typeWriting.typeResolver(modelTypeResolver))
       .build();

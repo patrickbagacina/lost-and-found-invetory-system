@@ -43,8 +43,8 @@ public class Item extends Model {
   @Column(nullable = false)
   private Boolean isRedeemed = false;
 
-  public Category getCategory() {
-    return category;
+  public String getCategory() {
+    return category.getText();
   }
 
   public void setCategory(Category category) {

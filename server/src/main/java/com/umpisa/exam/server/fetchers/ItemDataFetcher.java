@@ -4,7 +4,9 @@ import com.umpisa.exam.server.CategoryNotFoundException;
 import com.umpisa.exam.server.ItemNotFoundException;
 import com.umpisa.exam.server.models.Category;
 import com.umpisa.exam.server.models.Item;
+import com.umpisa.exam.server.models.User;
 import com.umpisa.exam.server.services.ItemService;
+import com.umpisa.exam.server.services.UserService;
 import com.umpisa.exam.server.utils.ListOpts;
 import graphql.schema.DataFetcher;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,9 @@ import java.util.Map;
 public class ItemDataFetcher extends BaseDataFetcher {
   @Autowired
   ItemService itemService;
+
+  @Autowired
+  UserService userService;
 
   public DataFetcher addItem() {
     return dataFetchingEnvironment -> {
@@ -78,5 +83,48 @@ public class ItemDataFetcher extends BaseDataFetcher {
       ListOpts.DEFAULT,
       dataFetchingEnvironment.getArgument("isRedeemed")
     );
+  }
+
+  public DataFetcher listAllItems() {
+    return dataFetchingEnvironment -> itemService.list(
+      ListOpts.DEFAULT
+    );
+  }
+
+  public DataFetcher redeemItem() {
+    return dataFetchingEnvironment -> {
+      Map<String, Object> args = dataFetchingEnvironment.getArgument("input");
+
+      Item item = itemService.get(args.get("itemId").toString()).orElseGet(() -> {
+        dataFetchingEnvironment.getExecutionContext().addError(new ItemNotFoundException());
+        return null;
+      });
+
+      if(dataFetchingEnvironment.getExecutionContext().getErrors().isEmpty()) {
+        User user = userService.create(
+          new User()
+            .withFirstName(args.get("firstName").toString())
+            .withLastName(args.get("lastName").toString())
+            .withEmail(args.get("email").toString())
+            .withMobileNumber(args.get("mobileNumber").toString())
+            .withTypeOfId(args.get("typeOfId").toString())
+            .withIdNumber(args.get("idNumber").toString())
+        );
+
+        return itemService.get(args.get("itemId").toString())
+          .map(i ->
+            itemService.update(
+              i
+                .withOwner(user)
+                .withRedeemed(true)
+            )
+          ).orElseGet(() -> {
+            dataFetchingEnvironment.getExecutionContext().addError(new ItemNotFoundException());
+            return null;
+          });
+      }
+      else
+        return null;
+    };
   }
 }

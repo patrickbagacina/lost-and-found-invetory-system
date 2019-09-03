@@ -2,11 +2,13 @@ type Mutation {
     login(input: LoginRequest): User
     addItem(input: CreateItemRequest): Item
     updateItem(input: UpdateItemRequest): Item
+    redeemItem(input: RedeemItemRequest): Item
 }
 
 type Query {
     item(id: ID!): Item
-    items(opts: ListOpts, isRedeemed: Boolean): PagedList
+    items(isRedeemed: Boolean): PagedList
+    allItems: PagedList
 }
 
 # Input Models
@@ -18,15 +20,19 @@ input CreateItemRequest {
     description: String
 }
 
-input ListOpts {
-    max: Int
-    offset: Int
-    sort: String
-}
-
 input LoginRequest {
     username: String!
     password: String!
+}
+
+input RedeemItemRequest {
+    itemId: ID
+    firstName: String
+    lastName: String
+    email: String
+    mobileNumber: String
+    typeOfId: String
+    idNumber: String
 }
 
 input UpdateItemRequest {
@@ -60,6 +66,8 @@ type Item {
 
 type User {
     id: ID
+    created: Int!
+    updated: Int!
     username: String
     firstName: String
     lastName: String

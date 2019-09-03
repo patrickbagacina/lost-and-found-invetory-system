@@ -59,6 +59,19 @@ public class User extends Model {
   @NotBlank
   private String idNumber;
 
+  public String getTypeOfId() {
+    return typeOfId;
+  }
+
+  public void setTypeOfId(String typeOfId) {
+    this.typeOfId = typeOfId;
+  }
+
+  public User withTypeOfId(String arg) {
+    setTypeOfId(arg);
+    return this;
+  }
+
   public String getIdNumber() {
     return idNumber;
   }
