@@ -113,6 +113,28 @@ export class ItemsApi {
       }).toPromise();
   }
 
+  listAll() {
+    const query = gql`
+      query listItems {
+        allItems {
+          total
+          data {
+            ... on Item {
+              category
+              isRedeemed
+            }
+          }
+        }
+      }
+    `;
+
+
+    return this.apollo
+      .query({
+        query
+      }).toPromise();
+  }
+
   redeem(item: any) {
     const mutation = gql`
       mutation redeemItem(

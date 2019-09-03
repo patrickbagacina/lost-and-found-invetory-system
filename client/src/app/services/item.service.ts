@@ -13,6 +13,10 @@ export class ItemService {
     return Item.get(id);
   }
 
+  listAllItems() {
+    return Item.listAll();
+  }
+
   listItemsInStorage() {
     return Item.list(false);
   }

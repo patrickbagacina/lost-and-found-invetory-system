@@ -9,6 +9,10 @@ export class Item extends Model {
     return this.api().items().get(id);
   }
 
+  static listAll() {
+    return this.api().items().listAll();
+  }
+
   static list(isRedeemed: boolean) {
     return this.api().items().list(isRedeemed);
   }

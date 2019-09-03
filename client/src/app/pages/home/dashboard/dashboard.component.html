@@ -1,1 +1,14 @@
-<p>dashboard works!</p>
+<div class="wrapper" *ngIf="allItems">
+  <div class="box">
+    <h6>Total Items</h6>
+    <h1>{{ allItems.length }}</h1>
+  </div>
+  <div class="box">
+    <h6>Items in storage</h6>
+    <h1>{{ allItems.length - redeemedItems.length }}</h1>
+  </div>
+  <div class="box">
+    <h6>Redeemed Items</h6>
+    <h1>{{ redeemedItems.length }}</h1>
+  </div>
+</div>
